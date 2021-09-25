@@ -1,0 +1,71 @@
+<div class="card cardStyle">
+  <h5 class="card-header" align="center">Register</h5>
+  <div class="card-body" >
+      <form action="" name="registerForm"  (ngSubmit)="registerUser()">
+      <div class="mb-3" [formGroup]="registerForm">
+          <label for="firstname"><b>First Name</b></label>
+        <input formControlName="firstname" type="text" name="firstname"
+        id="firstname" placeholder="Enter your First Name"  [(ngModel)]="userProfile.userName"  required>
+      </div>
+
+      <div class="mb-3" [formGroup]="registerForm">
+          <label for="lastname"><b>Last Name</b></label>
+          <input formControlName="lastname" type="text" name="lastname"
+          id="lastname" placeholder="Enter your Last Name" required>
+      </div>
+
+      <div class="mb-3" >
+        <label for="dob"><b>Date of Birth</b></label>
+        <input  type="date" name="dob"
+        id="dob" placeholder="Enter your Date of Birth" [(ngModel)]="userProfile.dateOfBirth" required>
+    </div>
+
+    <div class="mb-3">
+      <label ><b>Gender</b></label>
+      <input type="radio" id="male" name="gender" value="M" [(ngModel)]="userProfile.gender" required>Male
+
+      <input type="radio" id="female" name="gender" value="F" [(ngModel)]="userProfile.gender" required>Female
+     
+    </div>
+
+      <div class="mb-3 " [formGroup]="registerForm">
+          <label for="email"><b>Email</b></label>
+          <input formControlName="email" type="text"  name="email"
+          id="email" placeholder="Enter your valid Email" [(ngModel)]="userProfile.registeredEmail" required>
+      </div>
+
+      <div id="id2" *ngIf="registerForm.get('email').hasError('pattern')"
+      style="color: red;"> Enter a Valid Email
+      </div>
+
+      <div class="mb-3 " [formGroup]="registerForm">
+          <label for="pwd"><b>Password</b></label>
+        <input formControlName="pwd" type="password" name="pwd"
+        id="pwd"  placeholder="Enter your Password" [(ngModel)]="userProfile.password" required>
+      </div>
+
+      <div id="id3" *ngIf="registerForm.get('pwd').hasError('pattern')"
+      style="color: red;"> Enter a Valid password
+      </div>
+
+
+      <div class="mb-3 " [formGroup]="registerForm">
+          <label for="cpwd"><b>Confirm Password</b></label>
+        <input formControlName="cpwd" type="password" name="cpwd"
+        id="cpwd" placeholder="Confirm Password"required >
+      </div>
+
+      <div class="mb-3 " [formGroup]="registerForm">
+          <label for="contactno"><b>Contact Number</b></label>
+          <input formControlName="contactno" type="tel" name="contactno"
+          id="contactno" placeholder="Enter your Contact Number" [(ngModel)]="userProfile.phoneNumber" required>
+      </div>
+
+        <p align="center"><button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary buttonCenter"   >Register</button>
+        <button type="reset" class="btn btn-danger buttonCenter">Cancel</button></p>
+
+
+
+    </form>
+  </div>
+</div>

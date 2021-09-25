@@ -1,0 +1,28 @@
+
+<div class="card cardStyle">
+  <h5 class="card-header" align="center">Login</h5>
+  <div class="card-body">
+      <form action="" [formGroup]="loginForm" (ngSubmit)="checkValidLogin()">
+      <div class="mb-3">
+        <label for="email"><b>Email</b></label>
+          <input formControlName="email" type="email"
+          id="email" placeholder="E-mail" [(ngModel)]="registeredEmailId" />
+
+          <div id="id2" *ngIf="loginForm.get('email').hasError('pattern')"
+          style="color: red;"> Enter a Valid Email
+          </div>
+      </div>
+      <div class="mb-3">
+        <label for="pwd"><b>Password</b></label>
+          <input formControlName="pwd" type="password"
+          name="pwd" id="password" placeholder="Password" [(ngModel)]="password"/>
+
+      </div>
+      <div class="mb-3">
+        <p align="center"><button type="submit"  class="btn btn-primary buttonCenter">Login</button>
+        <button type="reset" class="btn btn-danger buttonCenter">Cancel</button></p>
+      </div>
+
+    </form>
+  </div>
+</div>

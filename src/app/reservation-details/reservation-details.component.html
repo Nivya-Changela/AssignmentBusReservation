@@ -1,0 +1,39 @@
+<nav class="navbar  navbar-dark bg-primary">
+    <form class="form-inline">
+        <a class="navbar-brand" href="#" style="font-size: 25pt;">Bus Reservation System</a>
+        <button type="button" class="btn btn-dark loginStyle " style=" float: right;" (click)="logout()">Go Back</button>
+    </form>
+  </nav>
+<div class="card cardStyle">
+  <h5 class="card-header" align="center">Traveller info</h5>
+  <div class="card-body">
+    <form #traveller="ngForm" (ngSubmit)="registerTravller(traveller.value)">
+      <div>
+        <label ><b>Passenger Name</b></label>
+        <input placeholder="passenger name" ngModel name="passengerName" type="text">
+      </div>
+      <div>
+        <label ><b>Bus No</b></label>
+        <input placeholder="Bus No" [(ngModel)]="busNois" name="busNo" type="text">
+      </div>
+      <div>
+        <label ><b>Seat No</b></label>
+        <input placeholder="Seat No" [(ngModel)]="seatNois" name="seatNo" type="text">
+      </div>
+      <div>
+        <label ><b>Departure date</b></label>
+        <input placeholder="Departure date" ngModel name="departureDate" type="date">
+      </div>
+      <div>
+        <label ><b>Email</b></label>
+        <input placeholder="Email" ngModel name="email" type="email">
+      </div>
+      <div class="nextButton"> 
+        <button type="button" class="btn btn-primary buttonCenter" (click)="proceedPayment()">Payment</button>
+        <input class="btn btn-primary buttonCenter" type="reset" name="Reset" >
+       </div>
+    </form>
+  </div>
+</div>
+
+ 

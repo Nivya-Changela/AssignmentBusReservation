@@ -1,0 +1,70 @@
+<nav class="navbar  navbar-dark bg-primary">
+  <form class="form-inline">
+    <a class="navbar-brand" href="#" style="font-size: 25pt;">Bus Reservation System</a>
+    <button type="button" class="btn btn-dark loginStyle " style=" float: right;" (click)="logout()">Go Back</button>
+  </form>
+</nav>
+
+<div class="card cardStyle">
+  <h5 class="card-header" align="center">Pay with Card</h5>
+  <div class="card-body">
+
+    <form action="" name="paymentForm" (ngSubmit)="payWithCard()">
+
+
+      <div class="mb-3">
+        <label for="cname">Name on Card</label>
+        <input type="text" id="cname" name="cardname" placeholder="Name on Card" >
+
+      </div>
+
+      <div class="mb-3">
+        <label for="ccnum">Credit card number</label>
+        <input type="text" id="ccnum" name="cardnumber" placeholder="Credit card number" required
+          >
+
+      </div>
+
+
+      <div class="mb-3 ">
+        <label for="expmonth">Exp Month</label>
+        <input type="text" id="expmonth" name="expmonth" placeholder="Exp Month" required >
+
+      </div>
+
+      <div class="mb-3 ">
+        <label for="expyear">Exp Year</label>
+        <input type="text" id="expyear" name="expyear" placeholder="Exp Year" required >
+
+      </div>
+
+
+      <div class="mb-3 ">
+        <label for="cvv">CVV</label>
+        <input type="text" id="cvv" name="cvv" placeholder="CVV" required >
+
+      </div>
+
+
+
+      <p align="center">
+
+        <button type="submit" class="btn btn-primary buttonCenter">Click to get OTP</button>
+        <button type="reset" class="btn btn-danger buttonCenter">Reset</button>
+      </p>
+
+    </form>
+
+  </div>
+
+  <div class="card-body">
+    <form>
+      <div>
+        <label>Enter OTP</label>
+        <input type="text"  placeholder="enter pin"><br>
+      </div>
+      <div align="center">
+        <button class="btn btn-primary buttonCenter" (click)="deductAmt()">Pay to book your seat</button>
+      </div>
+    </form>
+  </div>

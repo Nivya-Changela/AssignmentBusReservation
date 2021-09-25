@@ -1,0 +1,14 @@
+
+.unselected
+{
+  font-size: 1rem;
+         padding: 5px 10px;
+         color:   #585858;
+}
+
+.selected{
+  font-weight: bold;
+         color: #1565c0;
+         padding: 5px 10px;
+         font-size: 1rem;
+}

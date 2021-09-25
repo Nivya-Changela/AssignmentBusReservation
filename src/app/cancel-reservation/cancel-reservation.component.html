@@ -1,0 +1,52 @@
+
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary" >
+ 
+  <div class="collapse navbar-collapse">
+
+    <a class="navbar-brand" href="#"><b>Bus Reservation System</b></a><br><hr>
+    <button type="button" class="btn btn-dark buttonStyle " routerLink="/login" routerLinkActive="active">Login</button>
+    <button type="button" class="btn btn-dark  buttonStyle" routerLink="/register" routerLinkActive="active">Sign Up</button><br>
+    <button type="button" class="btn btn-dark buttonStyle" routerLink="/cancel-reservation" routerLinkActive="active">Cancel Reservation</button>
+    <button type="button" class="btn btn-dark loginStyle " style=" float: right;" (click)="logout()">Home</button>
+      
+
+  </div>
+
+</nav>
+
+
+<div class="card cardStyle">
+  <h5 class="card-header" align="center">Cancel Reservation</h5>
+  <div class="card-body">
+   
+      <form action="" name="cancelReservationForm" (ngSubmit)="cancelreservationcomponent()">
+      <div class="mb-3">
+        <label for="email"><b>Enter Email</b></label>
+          <input formControlName="email1" type="email"
+          id="email1" placeholder="E-mail" />
+
+      </div>
+      <div class="mb-3">
+        <label for="jID"> Enter Journey ID</label>
+        <input formControlName="jID" type="text" name="journeyID"  id="jID" placeholder="Journey ID"  />
+          
+
+      </div>
+
+      <div class="mb-3">
+        <label for="rID"> Enter Reservation ID</label>
+        <input formControlName="rID" type="text" name="reservationID"  id="rID" placeholder="Reservation ID" />
+      </div>
+
+
+      <div class="mb-3">
+        <p align="center">
+          <button type="submit" class="btn btn-primary buttonCenter">Cancel Reservation</button>
+          <button type="reset" class="btn btn-danger buttonCenter">Reset</button>
+        </p>
+      </div>
+
+    </form>
+  </div>
+</div>
+

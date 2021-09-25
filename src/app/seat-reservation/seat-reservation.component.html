@@ -1,0 +1,48 @@
+<nav class="navbar  navbar-dark bg-primary">
+  <form class="form-inline">
+    <a class="navbar-brand" href="#" style="font-size: 20pt;">Bus Reservation System</a>
+    <button type="button" class="btn btn-dark loginStyle " style=" align-items: right;" (click)="logout()"
+      routerLink="/home" routerLinkActive="active">Go back</button>
+  </form>
+</nav>
+<br>
+
+<div align="center">
+  <form>
+    <div>
+      <table>
+        <tr *ngFor="let s of BusSeatDetails.seat_no">
+
+          <td>
+            <div *ngIf="s==0; else elseblock">
+              <button [class]="buttonststus" (click)=changeButtonStatus(s) disabled>{{s}}</button>
+
+            </div>
+            <ng-template #elseblock>
+              <button [class]="reservedbuttonStatus" (click)=changeButtonStatus(s)>{{s}}</button>
+            </ng-template>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </form>
+</div>
+
+<form>
+  <div align="center">
+    <h3>Seates Selected</h3>
+    <table>
+      <tr *ngFor="let selected of seats">
+        <td>
+          {{selected}}
+        </td>
+
+      </tr>
+    </table>
+    <h3>
+      Total Cost : {{total}}
+    </h3>
+    <br>
+    <button type="button" class="btn btn-primary" (click)="reserveSeat()">Fill Traveller Info</button>
+  </div>
+</form>

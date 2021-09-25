@@ -1,0 +1,119 @@
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
+
+  <div class="collapse navbar-collapse">
+
+    <a class="navbar-brand" href="#"><b>Bus Reservation System</b></a><br>
+    <hr>
+    <button type="button" class="btn btn-dark buttonStyle " routerLink="/login" routerLinkActive="active">Login</button>
+    <button type="button" class="btn btn-dark  buttonStyle" routerLink="/register" routerLinkActive="active">Sign
+      Up</button><br>
+
+    <button type="button" class="btn btn-dark buttonStyle" routerLink="/cancel-reservation"
+      routerLinkActive="active">Cancel Reservation</button>
+
+
+
+  </div>
+
+</nav>
+
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/aboutus" routerLinkActive="active">About <span class="sr-only"></span></a>
+
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contactus" routerLinkActive="active">Contact Us</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-md-offset-3 custyle">
+      <form action="" name="SearchForm" (ngSubmit)=" checkData()">
+        <br>
+        <fieldset>
+
+          <legend><b>Online Ticket Booking</b></legend><br>
+          <table>
+            <tr>
+              <th>Source</th>
+              <th>Destination</th>
+            </tr>
+            <tr>
+              <td>
+                <select class="form-control" id="source" name="sources" required [(ngModel)]="sourceChose">
+                  <option *ngFor="let l of locations">{{ l.name}}</option>
+                </select>
+              </td>
+              <td>
+                <select class="form-control" id="destination" name="destinations" required
+                  [(ngModel)]="destinationChosen">
+                  <option *ngFor="let l1 of locations">{{ l1.name}}</option>
+                </select>
+              </td>
+            </tr><br>
+
+          </table>
+          <br>
+          <div class="form-group">
+            <input class="btn btn-primary" type="submit" name="searchBus" value="Search Bus">
+          </div>
+        </fieldset>
+
+      </form>
+
+    </div>
+    <form (ngSubmit)="listBus()">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>bus_no</th>
+          <th>bus_type</th>
+          <th>bus_type</th>
+          <th>no_of_seats</th>
+          <th>driver_name</th>
+          <th>travels_name</th>
+          <th>cost_per_seat</th>
+          <th>departure_time</th>
+          <th>arrival_time</th>
+          <th>source_loc</th>
+          <th>destination_loc</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let a of busesdata">
+          <th>{{a.bus_no}}</th>
+          <th>{{a.bus_type}}</th>
+          <th>{{a.bus_type}}</th>
+          <th>{{a.no_of_seats}}</th>
+          <th>{{a.driver_name}}</th>
+          <th>{{a.travels_name}}</th>
+          <th>{{a.cost_per_seat}}</th>
+          <th>{{a.departure_time}}</th>
+          <th>{{a.arrival_time}}</th>
+          <th>{{a.source_loc}}</th>
+          <th>{{a.destination_loc}}</th>
+        </tr>
+
+      </tbody>
+    </table>
+    
+    <div class="nextButton">
+      <input class="btn btn-primary" type="submit" name="Next" value="Book">
+     </div>
+    </form>
+    
+  </div>
+</div>
+<div>
+
+</div>
