@@ -2,7 +2,11 @@
 
   <div class="collapse navbar-collapse">
 
-    <a class="navbar-brand" href="#"><b>Bus Reservation System</b></a><br>
+    <a class="navbar-brand" href="#">
+      <b>Bus Reservation System</b><br>
+      <p><b>Hello {{username}} Welcome !!</b></p>
+    </a>
+    
     <hr>
     <button type="button" class="btn btn-dark buttonStyle " routerLink="/login" routerLinkActive="active">Login</button>
     <button type="button" class="btn btn-dark  buttonStyle" routerLink="/register" routerLinkActive="active">Sign
@@ -31,89 +35,102 @@
       </li>
 
     </ul>
+   
   </div>
 </nav>
 
-
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-6 col-md-offset-3 custyle">
-      <form action="" name="SearchForm" (ngSubmit)=" checkData()">
-        <br>
-        <fieldset>
-
-          <legend><b>Online Ticket Booking</b></legend><br>
-          <table>
-            <tr>
-              <th>Source</th>
-              <th>Destination</th>
-            </tr>
-            <tr>
-              <td>
-                <select class="form-control" id="source" name="sources" required [(ngModel)]="sourceChose">
-                  <option *ngFor="let l of locations">{{ l.name}}</option>
-                </select>
-              </td>
-              <td>
-                <select class="form-control" id="destination" name="destinations" required
-                  [(ngModel)]="destinationChosen">
-                  <option *ngFor="let l1 of locations">{{ l1.name}}</option>
-                </select>
-              </td>
-            </tr><br>
-
-          </table>
-          <br>
-          <div class="form-group">
-            <input class="btn btn-primary" type="submit" name="searchBus" value="Search Bus">
-          </div>
-        </fieldset>
-
-      </form>
-
-    </div>
-    <form (ngSubmit)="listBus()">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>bus_no</th>
-          <th>bus_type</th>
-          <th>bus_type</th>
-          <th>no_of_seats</th>
-          <th>driver_name</th>
-          <th>travels_name</th>
-          <th>cost_per_seat</th>
-          <th>departure_time</th>
-          <th>arrival_time</th>
-          <th>source_loc</th>
-          <th>destination_loc</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let a of busesdata">
-          <th>{{a.bus_no}}</th>
-          <th>{{a.bus_type}}</th>
-          <th>{{a.bus_type}}</th>
-          <th>{{a.no_of_seats}}</th>
-          <th>{{a.driver_name}}</th>
-          <th>{{a.travels_name}}</th>
-          <th>{{a.cost_per_seat}}</th>
-          <th>{{a.departure_time}}</th>
-          <th>{{a.arrival_time}}</th>
-          <th>{{a.source_loc}}</th>
-          <th>{{a.destination_loc}}</th>
-        </tr>
-
-      </tbody>
-    </table>
+<div class="imag">
+  <div class="container">
+    <font style="opacity:.6">
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-md-offset-3 custyle">
+          <form action="" name="SearchForm" (ngSubmit)=" checkData()">
+            <br>
+            <fieldset>
     
-    <div class="nextButton">
-      <input class="btn btn-primary" type="submit" name="Next" value="Book">
-     </div>
-    </form>
+              <legend><b>Online Ticket Booking</b></legend><br>
+              <table>
+                <tr>
+                  <th>Source</th>
+                  <th>Destination</th>
+                </tr>
+                <tr>
+                  <td>
+                    <select class="form-control" id="source" name="sources" required [(ngModel)]="sourceChose">
+                      <option *ngFor="let l of locations">{{ l.name}}</option>
+                    </select>
+                  </td>
+                  <td>
+                    <select class="form-control" id="destination" name="destinations" required
+                      [(ngModel)]="destinationChosen">
+                      <option *ngFor="let l1 of locations">{{ l1.name}}</option>
+                    </select>
+                  </td>
+                </tr><br>
+                <tr>
+                  <th>Date of Journey</th>
+                 <th>Date of Return(Optional)</th>
+                </tr>
+                <tr>
+                  <td>
+                      <input class="form-control" type="date" name="dateOfJourney" id="dateOfJourney" [(ngModel)]="dateOfJourney" required/><br>
+                  </td>
+                  <td>
+                      <input class="form-control" type="date" name="dateOfReturn" id="dateOfReturn" /><br>
+                  </td>
+              </tr>
+              </table>
+              <br>
+              <div class="form-group">
+                <input class="btn btn-primary" type="submit" name="searchBus" value="Search Bus">
+              </div>
+            </fieldset>
+    
+          </form>
+    
+        </div>
+        <form (ngSubmit)="listBus()">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>bus_no</th>
+              <th>bus_type</th>
+              <th>bus_type</th>
+              <th>no_of_seats</th>
+              <th>driver_name</th>
+              <th>travels_name</th>
+              <th>cost_per_seat</th>
+              <th>departure_time</th>
+              <th>arrival_time</th>
+              <th>source_loc</th>
+              <th>destination_loc</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let a of busesdata">
+              <th>{{a.bus_no}}</th>
+              <th>{{a.bus_type}}</th>
+              <th>{{a.bus_type}}</th>
+              <th>{{a.no_of_seats}}</th>
+              <th>{{a.driver_name}}</th>
+              <th>{{a.travels_name}}</th>
+              <th>{{a.cost_per_seat}}</th>
+              <th>{{a.departure_time}}</th>
+              <th>{{a.arrival_time}}</th>
+              <th>{{a.source_loc}}</th>
+              <th>{{a.destination_loc}}</th>
+            </tr>
+    
+          </tbody>
+        </table>
+        
+        <div class="nextButton">
+          <input class="btn btn-primary" type="submit" name="Next" value="Book">
+         </div>
+        </form>
+        
+      </div>
+    </font>
     
   </div>
-</div>
-<div>
-
 </div>

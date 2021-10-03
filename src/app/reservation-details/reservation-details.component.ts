@@ -15,22 +15,28 @@ export class ReservationDetailsComponent implements OnInit {
 
   busNois: string = sessionStorage.getItem('busNo');
   seatNois: string = sessionStorage.getItem('seatNo');
+  passengerName:string ;
+  departureDate:string = sessionStorage.getItem('dateOfJourney');
+  email:string;
 
+  
   registerForm = new FormGroup({
     passengerName: new FormControl(''),
-    busNo: new FormControl(''),
-    seatNo: new FormControl(''),
+    busNois: new FormControl(''),
+    seatNois: new FormControl(''),
     departureDate: new FormControl(''),
     email: new FormControl(''),
   })
 
   addTraveller: string = "http://localhost:8085/booking/addBooking";
 
-  registerTravller(data: any) {
-
+  registerTravller(data) {
+    
+    console.log("form data submiting");
     console.warn(data);
-    return this.http.get("http://localhost:8085/booking/addBooking?passengerName=" + data.passengerName + "&busNo=" + data.busNois + "&seatNo=" + data.seatNois + "&departureDate=" + data.departureDate + "&email=" + data.email)
+    return this.http.get("http://localhost:8085/booking/addBooking?passengerName=", data)
       .subscribe((res) => {
+       
         console.log(res);
       });
 
@@ -39,7 +45,31 @@ export class ReservationDetailsComponent implements OnInit {
     this.router.navigate(['/seat-reservation']);
   }
   proceedPayment(){
-    this.router.navigate(['/payment']);
+   
+    // console.log(this.seatNois);
+    // console.log(this.busNois);
+    // console.log(this.passengerName);
+    // console.log(this.departureDate);
+    // console.log(this.email);
+    
+    // var data={
+    //   "passengerName":this.passengerName,
+    //   "busNo":this.busNois,
+    //   "seatNo":this.seatNois,
+    //   "departureDate":this.departureDate,
+    //   "email":this.email,
+    // }
+    console.log(this.registerForm);
+    sessionStorage.setItem('passengerName',this.passengerName);
+    sessionStorage.setItem('emailbook',this.email);
+    // return this.http.post("http://localhost:8085/booking/addBooking",this.registerForm.getRawValue())
+    // .subscribe((res) => {
+    //   console.log(res);
+    //   this.router.navigate(['/payment']);
+     
+    // });
+     this.router.navigate(['/payment']);
+
   }
   ngOnInit(): void {
   }

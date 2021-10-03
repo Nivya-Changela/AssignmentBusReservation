@@ -3,6 +3,12 @@
   <h5 class="card-header" align="center">Login</h5>
   <div class="card-body">
       <form action="" [formGroup]="loginForm" (ngSubmit)="checkValidLogin()">
+        <div class="mb-3">
+          <label for="user"><b>Username</b></label>
+            <input formControlName="user" type="text"
+            name="user" id="user" placeholder="Username" [(ngModel)]="username"/>
+  
+        </div>
       <div class="mb-3">
         <label for="email"><b>Email</b></label>
           <input formControlName="email" type="email"

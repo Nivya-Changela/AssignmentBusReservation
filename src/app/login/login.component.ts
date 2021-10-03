@@ -10,14 +10,19 @@ import { User } from '../models/User';
 })
 export class LoginComponent implements OnInit {
   loginForm:FormGroup;
+  username : any;
   registeredEmailId:string;
   password:string;
   myUser : User = new User();
 
-  constructor(private service:BusServiceService,private router  : Router) { }
+  constructor(private service:BusServiceService,private router  : Router) {
+
+    
+   }
 
   ngOnInit(): void {
     this.loginForm=new FormGroup({
+      //user: new FormControl(),
       email:new FormControl('',[Validators.required,Validators.pattern("[a-z0-9._%+-]+@[a-z0-9-]+\.[a-z]{2,4}$")]),
       pwd:new FormControl('',[Validators.required,Validators.minLength(8)])
     })
@@ -28,9 +33,12 @@ export class LoginComponent implements OnInit {
 
           if (data){
             alert("Login detail matched");
-            this.myUser.username=this.registeredEmailId;
+            this.myUser.username = this.username;
+            sessionStorage.setItem('userKey',this.myUser.username);
+
+          // this.myUser.username=this.registeredEmailId;
             this.myUser.isLogeedIn=true;
-            sessionStorage.setItem('userKey',String(this.myUser.username));
+          //  sessionStorage.setItem('usermail',String(this.myUser.username));
             this.router.navigate(['/home']);
           }
           else{

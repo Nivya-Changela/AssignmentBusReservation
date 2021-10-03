@@ -6,3 +6,16 @@
 .nextButton{
  text-align: center;
 }
+ .imag{
+  background-image: url("https://image.shutterstock.com/image-photo/bus-traveling-on-asphalt-road-260nw-1345741577.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+.row justify-content-center{
+  background-color: aliceblue;
+}
+.col-md-6 col-md-offset-3 custyle{
+  background-color: aliceblue;
+}

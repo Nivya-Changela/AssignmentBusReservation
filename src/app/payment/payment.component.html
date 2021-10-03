@@ -6,13 +6,115 @@
 </nav>
 
 <div class="card cardStyle">
-  <h5 class="card-header" align="center">Pay with Card</h5>
+  <h1 class="card-header" align="center">Your Ticket is Booked !!!</h1>
+  <h3 class="card-header" align="center">Happy journey</h3>
   <div class="card-body">
 
     <form action="" name="paymentForm" (ngSubmit)="payWithCard()">
-
+      <table border="1px" align="center">
+        <tr>
+          <td>Passenger Name</td>
+          <td>{{passengerName}}</td>
+        </tr>
+        <tr>
+          <td>Seat No</td>
+          <td>{{seatNo}}</td>
+        </tr>
+        <tr>
+          <td>Destination</td>
+          <td>{{destination}}</td>
+        </tr>
+        <tr>
+          <td>Source</td>
+          <td>{{source}}</td>
+        </tr>
+        <tr>
+          <td>Journey Date</td>
+          <td>{{dateOfJourney}}</td>
+        </tr>
+        <tr>
+          <td>Passenger email</td>
+          <td>{{emailbook}}</td>
+        </tr>
+        <tr>
+          <td>Bus No</td>
+          <td>{{busNo}}</td>
+        </tr>
+        <tr>
+          <td>Amount Paid</td>
+          <td>{{costPerSeat}} INR</td>
+        </tr>
+        <tr>
+          <td>Driver Name</td>
+          <td>{{driverName}}</td>
+        </tr>
+        <tr>
+          <td>Travels Name</td>
+          <td>{{travelsName}}</td>
+        </tr>
+        <tr>
+          <td>Departure Time</td>
+          <td>{{departureTime}}</td>
+        </tr>
+        <tr>
+          <td>Arrival Time</td>
+          <td>{{arrivalTime}}</td>
+        </tr>
+      </table>
+      <!-- <div class="mb-3">
+        <label for="cname">Passenger Name</label>{{passengerName}}
+      </div>
 
       <div class="mb-3">
+        <label for="ccnum">Seat No</label>{{seatNo}}
+      </div>
+
+      <div class="mb-3 ">
+        <label for="expmonth">Destination</label>{{destination}}
+      </div>
+
+      <div class="mb-3 ">
+        <label for="expyear">Source</label>{{source}}
+      </div> -->
+
+      <!-- <div class="mb-3 ">
+        <label for="cvv">Journey Date</label>{{dateOfJourney}}
+      </div>
+
+      <div class="mb-3">
+        <label for="ccnum">Passenger email</label>{{emailbook}}
+      </div>
+
+      <div class="mb-3 ">
+        <label for="expmonth">Bus No</label>{{busNo}}
+      </div> -->
+
+      <!-- <div class="mb-3 ">
+        <label for="expyear">Amount Paid</label>{{costPerSeat}} INR
+      </div> -->
+
+      <!-- <div class="mb-3 ">
+        <label for="cvv">Driver Name</label>{{driverName}}
+      </div>
+
+      <div class="mb-3 ">
+        <label for="expmonth">Travels Name</label>{{travelsName}}
+      </div>
+
+      <div class="mb-3 ">
+        <label for="expyear">Departure Time</label>{{departureTime}}
+      </div>
+
+      <div class="mb-3 ">
+        <label for="cvv">Arrival Time</label>{{arrivalTime}}
+      </div> -->
+
+      <p align="center">
+        <button type="submit" class="btn btn-primary buttonCenter">Have a great journey</button>
+      </p> 
+
+      <!-- --------------------------------------------------------------------------------- -->
+      <!-- <div class="mb-3">
         <label for="cname">Name on Card</label>
         <input type="text" id="cname" name="cardname" placeholder="Name on Card" >
 
@@ -51,13 +153,13 @@
 
         <button type="submit" class="btn btn-primary buttonCenter">Click to get OTP</button>
         <button type="reset" class="btn btn-danger buttonCenter">Reset</button>
-      </p>
+      </p> -->
 
     </form>
 
   </div>
 
-  <div class="card-body">
+  <!-- <div class="card-body">
     <form>
       <div>
         <label>Enter OTP</label>
@@ -67,4 +169,4 @@
         <button class="btn btn-primary buttonCenter" (click)="deductAmt()">Pay to book your seat</button>
       </div>
     </form>
-  </div>
+  </div> -->

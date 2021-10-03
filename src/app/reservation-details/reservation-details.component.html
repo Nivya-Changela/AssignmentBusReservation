@@ -10,23 +10,23 @@
     <form #traveller="ngForm" (ngSubmit)="registerTravller(traveller.value)">
       <div>
         <label ><b>Passenger Name</b></label>
-        <input placeholder="passenger name" ngModel name="passengerName" type="text">
+        <input placeholder="passenger name"  [(ngModel)]="passengerName" name="passengerName" type="text">
       </div>
       <div>
-        <label ><b>Bus No</b></label>
-        <input placeholder="Bus No" [(ngModel)]="busNois" name="busNo" type="text">
+        <label ><b>Bus No</b></label>{{busNois}}
+        <!-- <input placeholder="Bus No" [(ngModel)]="busNois" name="busNo" type="text"> -->
       </div>
       <div>
-        <label ><b>Seat No</b></label>
-        <input placeholder="Seat No" [(ngModel)]="seatNois" name="seatNo" type="text">
+        <label ><b>Seat No</b></label>{{seatNois}}
+        <!-- <input placeholder="Seat No" [(ngModel)]="seatNois" name="seatNo" type="text"> -->
       </div>
       <div>
-        <label ><b>Departure date</b></label>
-        <input placeholder="Departure date" ngModel name="departureDate" type="date">
+        <label ><b>Departure date</b></label>{{departureDate}}
+   <!-- <input placeholder="Departure date" [(ngModel)]="departureDate" name="departureDate" type="date"> -->
       </div>
       <div>
         <label ><b>Email</b></label>
-        <input placeholder="Email" ngModel name="email" type="email">
+        <input placeholder="Email" [(ngModel)]="email" name="email" type="email">
       </div>
       <div class="nextButton"> 
         <button type="button" class="btn btn-primary buttonCenter" (click)="proceedPayment()">Payment</button>

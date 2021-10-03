@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { BusSeatDetails } from '../models/BusSeatDetails';
@@ -7,8 +8,10 @@ import { BusSeatDetails } from '../models/BusSeatDetails';
   styleUrls: ['./seat-reservation.component.css']
 })
 export class SeatReservationComponent {
-  buttonststus: string = "unselected";
-  reservedbuttonStatus: string = "selected";
+  buttonststus: string="unselected";
+  reservedbuttonStatus: string[]=["selected","selected","selected","selected","selected","selected",
+  "selected","selected","selected","selected","selected","selected","selected","selected","selected",
+  "selected","selected","selected","selected","selected","selected"]; 
   BusSeatDetails: BusSeatDetails = new BusSeatDetails("30", 41, 23);
 
   total = 0;
@@ -20,11 +23,18 @@ export class SeatReservationComponent {
   }
 
   changeButtonStatus(seatno: number) {
+    
     this.seats = this.seats.add(seatno);
     sessionStorage.setItem('seatNo', JSON.stringify(seatno));
     this.cost_per_seat = parseInt(sessionStorage.getItem('costPerSeat'));
     this.total = this.cost_per_seat * this.seats.size;
     console.warn(this.seats);
+
+    if(this.reservedbuttonStatus[seatno]=="selected")
+    this.reservedbuttonStatus[seatno]= "unselected";
+
+    
+
   }
 
   reserveSeat(){

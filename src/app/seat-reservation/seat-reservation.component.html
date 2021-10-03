@@ -13,15 +13,7 @@
       <table>
         <tr *ngFor="let s of BusSeatDetails.seat_no">
 
-          <td>
-            <div *ngIf="s==0; else elseblock">
-              <button [class]="buttonststus" (click)=changeButtonStatus(s) disabled>{{s}}</button>
-
-            </div>
-            <ng-template #elseblock>
-              <button [class]="reservedbuttonStatus" (click)=changeButtonStatus(s)>{{s}}</button>
-            </ng-template>
-          </td>
+          <button  [class]="[reservedbuttonStatus[s]]"   (click)=changeButtonStatus(s)>{{s}}</button>
         </tr>
       </table>
     </div>

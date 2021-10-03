@@ -11,13 +11,17 @@ export class HomeComponent {
 
 
   constructor(private router: Router, private myHttp: HttpClient) {
+    this.username  =sessionStorage.getItem('username');
   }
-
+  username : any;// | undefined = sessionStorage.getItem('username');;
   costPerSeat: number;
   busCostData: any;
   sourceChose: string;
   destinationChosen: string;
   busesdata: any;
+  dateOfJourney :any;
+ 
+
   locations = [
     { name: "Nagpur", value: 1 },
     { name: "Chandigarh", value: 2 },
@@ -25,10 +29,11 @@ export class HomeComponent {
     { name: "Pune", value: 4 },
     { name: "Surat", value: 5 },
   ]
-
+  
   BusDetailsByRoute: string = "http://localhost:8085/busDetails/getBusByRoute";
 
   listBus() {
+   
     this.router.navigate(['/seat-reservation']);
   }
   checkData() {
@@ -36,13 +41,21 @@ export class HomeComponent {
     result.subscribe((data) => {
       this.busesdata = data;
       this.busCostData = data[0];
-      console.log(this.busesdata);
+      console.log(data);
+      console.log(data[0]);
+      
+      
+      sessionStorage.setItem('dateOfJourney',this.dateOfJourney);
       sessionStorage.setItem('SeatNo', this.busesdata.no_of_seats);
       sessionStorage.setItem('busNo', this.busCostData.bus_no);
       sessionStorage.setItem('busId', this.busCostData.bus_id);
       sessionStorage.setItem('costPerSeat', this.busCostData.cost_per_seat);
       sessionStorage.setItem('destination', this.destinationChosen);
       sessionStorage.setItem('source', this.sourceChose);
+      sessionStorage.setItem('driverName',this.busCostData.driver_name);
+      sessionStorage.setItem('travelsName',this.busCostData.travels_name);
+      sessionStorage.setItem('departureTime',this.busCostData.departure_time);
+      sessionStorage.setItem('arrivalTime',this.busCostData.arrival_time);
 
     })
 

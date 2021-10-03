@@ -10,6 +10,7 @@ import { UserProfile } from '../models/UserProfile';
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
+  username : any;
   userProfile: UserProfile = new UserProfile("", "", "", "", "", new Date());
   constructor(private service: BusServiceService, private router: Router) { }
 
@@ -26,7 +27,13 @@ export class RegisterComponent implements OnInit {
   }
 
   registerUser() {
-    this.service.registerUser(this.userProfile).subscribe((result) => console.warn(result));
+    this.service.registerUser(this.userProfile).subscribe((result) => {
+    this.username = this.userProfile.userName;
+
+    sessionStorage.setItem('username',this.userProfile.userName);
+    });
+    
+    
     this.router.navigate(['/login']);
   }
 }

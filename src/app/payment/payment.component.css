@@ -20,3 +20,8 @@ label{
   width: 150px;
   vertical-align: top;
 }
+
+table{
+  padding: 10px;
+  text-align: left;
+}
